@@ -1,0 +1,85 @@
+$component: '.mx-tooltip';
+
+$tooltip-arrow-width: 5px;
+$tooltip-default-bg: gray;
+$tooltip-sides: (top, bottom, left, right);
+$tooltip-border-radius: 3px;
+$tooltip-padding: 16px;
+$tooltip-box-shadow: 0 10px 30px 0 rgba(67, 80, 98, 0.08), 0 2px 4px 0 rgba(67, 80, 98, 0.08);
+
+#{$component} {
+  background-color: gray;
+  border-radius: $tooltip-border-radius;
+  box-shadow: $tooltip-box-shadow;
+  color: white;
+  line-height: 1.5rem;
+  margin-right: $tooltip-arrow-width;
+  padding-left: $tooltip-padding;
+  padding-right: $tooltip-padding;
+  width: auto;
+
+  &::before {
+    content: '';
+    height: 0;
+    position: absolute;
+    width: 0;
+    transform-origin: 0 0;
+  }
+
+  &--bottom {
+    margin-top: $tooltip-arrow-width;
+
+    &::before {
+      border-left: $tooltip-arrow-width solid transparent;
+      border-bottom: $tooltip-arrow-width solid $tooltip-default-bg;
+      border-right: $tooltip-arrow-width solid transparent;
+      top: -$tooltip-arrow-width;
+      left: 50%;
+      margin-top: $tooltip-arrow-width;
+      transform: translateX(-50%);
+    }
+  }
+
+
+  &--left {
+    margin-right: $tooltip-arrow-width;
+
+    &::before {
+      border-left: $tooltip-arrow-width solid $tooltip-default-bg;
+      border-bottom: $tooltip-arrow-width solid transparent;
+      border-top: $tooltip-arrow-width solid transparent;
+      margin-right: $tooltip-arrow-width;
+      right: -$tooltip-arrow-width;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+
+  &--right {
+    margin-left: 5$tooltip-arrow-width;
+
+    &::before {
+      border-top: $tooltip-arrow-width solid transparent;
+      border-bottom: $tooltip-arrow-width solid transparent;
+      border-right: $tooltip-arrow-width solid $tooltip-default-bg;
+      left: -$tooltip-arrow-width;
+      margin-left: $tooltip-arrow-width;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+
+  &--top {
+    margin-bottom: $tooltip-arrow-width;
+
+    &::before {
+      border-left: $tooltip-arrow-width solid transparent;
+      border-top: $tooltip-arrow-width solid $tooltip-default-bg;
+      border-right: $tooltip-arrow-width solid transparent;
+      bottom: -$tooltip-arrow-width;
+      left: 50%;
+      margin-bottom: $tooltip-arrow-width;
+      transform: translateX(-50%);
+    }
+  }
+}
